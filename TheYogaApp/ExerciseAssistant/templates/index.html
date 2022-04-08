@@ -1,10 +1,22 @@
+{% extends './base.html' %}
 {% load static %}
-<html>
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>Index HTML page</h1>
-</body>
-</html>
+{% block title %}Home{% endblock title %}
+{% block head %}<link rel="stylesheet" href="{% static 'ExerciseAssistant/css/style.css' %}">{% endblock head %}
+{% block body %}
+    <div class="main">
+      <img src="{% static 'ExerciseAssistant/images/home_img.svg' %}">
+    </div>
+    <div class=text">
+        <p>
+            Physical fitness is the key to mental well-being and a healthier life. Reducing the gap between you
+and your healthy self might pose a problem with traveling, expenses, and pandemics coming up as
+hurdles between you and your trainer.
+This application is aimed at providing perfect guidance for any individual who wants to learn
+exercises all by himself with instruction provided at every step throughout the course.
+The application filters exercises according to different criteria required to complete them efficiently.
+The app will provide commands in a step-by-step fashion leading to the trainee completing the
+exercise. In case the trainee ends up in a wrong posture, the app will notify him, using computer
+vision analysis.
+        </p>
+    </div>
+{% endblock body %}

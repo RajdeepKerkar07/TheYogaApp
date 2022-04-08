@@ -1,6 +1,6 @@
 [
 {
-  "model": "ExerciseAssistant.asana",
+  "model": "asanas.asana",
   "pk": 1,
   "fields": {
     "name": "Child’s Pose Or Balasana",
@@ -13,7 +13,7 @@
   }
 },
 {
-  "model": "ExerciseAssistant.asana",
+  "model": "asanas.asana",
   "pk": 2,
   "fields": {
     "name": "Downward-Facing Dog Or Adho Mukha Svanasana",
@@ -31,7 +31,7 @@
   }
 },
 {
-  "model": "ExerciseAssistant.asana",
+  "model": "asanas.asana",
   "pk": 3,
   "fields": {
     "name": "Upward-Facing Dog Or Urdhva Mukha Svanasana",
@@ -45,7 +45,7 @@
   }
 },
 {
-  "model": "ExerciseAssistant.asana",
+  "model": "asanas.asana",
   "pk": 4,
   "fields": {
     "name": "Cobra Or Bhujangasana",
@@ -59,7 +59,7 @@
   }
 },
 {
-  "model": "ExerciseAssistant.asana",
+  "model": "asanas.asana",
   "pk": 5,
   "fields": {
     "name": "Bridge Or Setu Bandha Sarvangasana",
@@ -75,7 +75,7 @@
   }
 },
 {
-  "model": "ExerciseAssistant.asana",
+  "model": "asanas.asana",
   "pk": 6,
   "fields": {
     "name": "Chair Pose Or “Utkatasana”",
@@ -91,7 +91,7 @@
   }
 },
 {
-  "model": "ExerciseAssistant.asana",
+  "model": "asanas.asana",
   "pk": 7,
   "fields": {
     "name": "Warrior One Or Virabhadrasana I",

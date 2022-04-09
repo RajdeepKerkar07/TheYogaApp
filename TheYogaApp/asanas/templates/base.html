@@ -6,8 +6,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<nav>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header nav-fill">
+      <a class="navbar-brand" href="#"><img  class="v-30 d-inline-block align-top" src="{% static 'asanas/images/yoga-pose.png' %}" width="30" height="30">The Yoga App</a>
+    </div>
+<!--    <ul class="list-group list-group-horizontal" >-->
+<!--      <li class="nav-item active list-group-item flex-fill"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+<!--      <li class="nav-item active list-group-item flex-fill"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+<!--    </ul>-->
+      <div class="">
+          <button type="button" class="btn btn-primary">Login</button>
+          <button type="button" class="btn btn-primary">Register</button>
+      </div>
+  </div>
 </nav>
 {% block body %}
 {% endblock body %}

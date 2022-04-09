@@ -3,21 +3,16 @@
 <head>
     <title>The Yoga App | {% block title %}{% endblock title %}</title>
     {% block head %}{% endblock head %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2 px-5 sticky-top">
   <div class="container-fluid">
     <div class="navbar-header nav-fill">
-      <a class="navbar-brand" href="#"><img  class="v-30 d-inline-block align-top" src="{% static 'asanas/images/yoga-pose.png' %}" width="30" height="30">The Yoga App</a>
+      <a class="navbar-brand" href="{% url 'index' %}"><img src="https://img.icons8.com/external-ddara-flat-ddara/64/000000/external-yoga-pose-yoga-poses-ddara-flat-ddara-24.png" class="px-3" style="height:35%; width:35%;"/>The Yoga App</a>
     </div>
-<!--    <ul class="list-group list-group-horizontal" >-->
-<!--      <li class="nav-item active list-group-item flex-fill"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-<!--      <li class="nav-item active list-group-item flex-fill"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
-<!--    </ul>-->
-      <div class="">
-          <button type="button" class="btn btn-primary">Login</button>
-          <button type="button" class="btn btn-primary">Register</button>
+      <div>
+          <button type="button" class="btn btn-primary py-1 px-2 mx-2">Login</button>
+          <button type="button" class="btn btn-primary py-1 px-2 mx-2">Register</button>
       </div>
   </div>
 </nav>
@@ -26,7 +21,7 @@
 <footer>
     <div class="bg-dark text-light text-center mb-0 py-3">
         <h5>Copyright &copy; 2022</h5>
-        <h5>Made with <i class="fa fa-heart" style="color:red;"></i> in <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-india-flag-countrys-flags-justicon-lineal-color-justicon.png" style="width:22;height:22;"></h5>
+        <h5>Made with<img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-heart-web-flaticons-lineal-color-flat-icons-7.png" style="width:30;height:30;" />in <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-india-flag-countrys-flags-justicon-lineal-color-justicon.png" style="width:22;height:20;margin-left:3px;"></h5>
     </div>
 </footer>
 </body>

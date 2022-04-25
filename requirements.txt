@@ -6,7 +6,6 @@ Django==4.0.3
 fonttools==4.31.2
 kiwisolver==1.4.0
 matplotlib==3.5.1
-mediapipe==0.8.9.1
 numpy==1.22.3
 opencv-contrib-python==4.5.5.64
 packaging==21.3

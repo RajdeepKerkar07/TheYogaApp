@@ -2,6 +2,15 @@
 {% load static %}
 {% block title %}Dashboard{% endblock title %}
 {% block head %}
+<style>
+    #one{
+        width:250px;
+        margin:20px 20px 0px 20px;
+        height:350px;
+        text-align:centre;
+    }
+
+</style>
 {% endblock head %}
 {% block body %}
 {% if messages %}
@@ -9,5 +18,15 @@
         <div class="alert alert-info" role="alert">{{ message }}</div>
     {% endfor %}
 {% endif %}
-<h1>Welcome to the dashboard</h1>
+<div class="container bg-light">
+    {% for asan in asana %}
+        <div class="card d-inline-block shadow p-3 mb-5 bg-white rounded" id="one">
+          <div class="card-body text-dark" id="two" >
+              <img src="{{ asan.image }}" style="height:150px;width:150px;margin:10px 10px 10px 10px;"; alt="{{ asan.name }}">
+              <h5 class="card-title">{{ asan.name }}</h5>
+              <button type="button" class="btn btn-outline-secondary">Start</button>
+          </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock body %}

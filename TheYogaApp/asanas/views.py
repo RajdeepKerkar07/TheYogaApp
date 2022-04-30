@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 from .models import Asana
-from ..users.models import Profile
 
 
 def index(request):
@@ -10,6 +9,5 @@ def index(request):
 
 def dashboard(request):
     asana = Asana.objects.all()
-    profile = Profile.objects.all()
-    return render(request, 'dashboard.html', {'asana': asana, 'profile': profile})
+    return render(request, 'dashboard.html', {'asana': asana})
 

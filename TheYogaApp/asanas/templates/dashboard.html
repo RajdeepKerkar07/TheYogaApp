@@ -11,7 +11,6 @@
 {% endif %}
 <div class="container bg-light shadow my-5">
     {% for asan in asana %}
-        {% if user.medical_condition %}
         <div class="card shadow mx-5 bg-white rounded d-inline-block my-3" style="height:300px; width:300px;" id="{{ asan.pk }}">
           <div class="card-body text-dark text-center">
               <img src="{{ asan.image }}" class="h-50 mx-auto d-block" alt="{{ asan.name }}">

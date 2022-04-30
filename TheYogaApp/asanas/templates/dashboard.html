@@ -2,15 +2,6 @@
 {% load static %}
 {% block title %}Dashboard{% endblock title %}
 {% block head %}
-<style>
-    #one{
-        width:250px;
-        margin:20px 20px 0px 20px;
-        height:350px;
-        text-align:centre;
-    }
-
-</style>
 {% endblock head %}
 {% block body %}
 {% if messages %}
@@ -18,13 +9,14 @@
         <div class="alert alert-info" role="alert">{{ message }}</div>
     {% endfor %}
 {% endif %}
-<div class="container bg-light">
+<div class="container bg-light shadow my-5">
     {% for asan in asana %}
-        <div class="card d-inline-block shadow p-3 mb-5 bg-white rounded" id="one">
-          <div class="card-body text-dark" id="two" >
-              <img src="{{ asan.image }}" style="height:150px;width:150px;margin:10px 10px 10px 10px;"; alt="{{ asan.name }}">
+        {% if user.medical_condition %}
+        <div class="card shadow mx-5 bg-white rounded d-inline-block my-3" style="height:300px; width:300px;" id="{{ asan.pk }}">
+          <div class="card-body text-dark text-center">
+              <img src="{{ asan.image }}" class="h-50 mx-auto d-block" alt="{{ asan.name }}">
               <h5 class="card-title">{{ asan.name }}</h5>
-              <button type="button" class="btn btn-outline-secondary">Start</button>
+              <button type="button" class="btn btn-outline-secondary mt-3">Start</button>
           </div>
         </div>
     {% endfor %}

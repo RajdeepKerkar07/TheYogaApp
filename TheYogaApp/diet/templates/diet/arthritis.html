@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Arthritis{% endblock title %}
+{% block head %}
+<style>
+.jumbotron {
+  position:relative;
+  overflow:hidden;
+}
+
+.jumbotron .container {
+  position:relative;
+  z-index:2;
+
+  background:rgba(0,0,0,0.2);
+  padding:2rem;
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:3px;
+}
+
+.jumbotron-background {
+  object-fit:cover;
+  font-family: 'object-fit: cover;';
+  position:absolute;
+  top:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  opacity:0.5;
+}
+
+img.blur {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+
+}
+</style>
+{% endblock head%}
+{% block body %}
+<script>
+  $(function () { objectFitImages() });
+</script>
+<div class="jumbotron jumbotron-fluid bg-dark">
+
+  <div class="jumbotron-background">
+    <img src="https://placeimg.com/2000/1000/nature" class="blur " style="background-repeat:repeat-y;">
+  </div>
+
+  <div class="container text-white mt-4 mb-4">
+
+    <h1 class="display-4">Arthritis Diet</h1>
+    <p class="lead">Customized diet for arthritis patients.</p>
+    <hr class="my-4">
+    <p>Carbohydrates,fats and cholesterol should be restricted in the diet since these food components are most likely to encourage inflammation while Ag,beta-carotene,vit-A,B-6,vit C,D and E,fiber,omega fatty acids,flavonoids,turmeric,tea are the strongest anti-inflammatories.</p>
+<!--    <ul>-->
+<!--      <li>High Fiber(Complex Carbohydrates)-Whole grains(specially millets),vegetables and fruits(consume local and seasonal foods).</li>-->
+<!--      <li>Avoid simple sugars,consume jaggery instead.No refined flour to be consumed(eg maida).</li>-->
+<!--      <li>No processed foods(includes ready to cook,canned and frozen packages).No fast food( includes cakes,pastries,pasta,pizza,burgers).It simply means you should avoid preservatives,additives,food calories,artificial sugars.</li>-->
+<!--      <li>Increase Vitamin C in the diet-Fresh leafy vegetables and fruits(eg amla,citrus fruits).</li>-->
+<!--      <li>High Protein food-whole grains,nuts,oilseeds,milk,egg,meat,fish</li>-->
+<!--      <li>Balance of saturated and unsaturated fat/oils - coconut oil + blend of bran + sunflower</li>-->
+<!--      <li>Flax seeds lowers cholesterol hence a must.</li>-->
+<!--      <li>Curry leaves are a natural antioxidant- you can powder it and drink it as a topping over curd.</li>-->
+<!--      <li>Punarnava/Jeera coriander water/chia seeds</li>-->
+<!--      <li>No soft drinks- can be replaced by lemon juice,tender coconut water,butter milk.</li>-->
+<!--    </ul>-->
+<!--    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
+
+  </div>
+  <!-- /.container -->
+
+
+</div>
+<!-- /.jumbotron -->
+
+<!--
+For IE support of object-fit add this to your document
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/3.2.4/ofi.min.js"&gt;&lt;/script&gt;
+-->
+
+
+
+{% endblock body %}

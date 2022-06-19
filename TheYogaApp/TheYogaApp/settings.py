@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     'asanas',
     'problems',
+    'diet',
 ]
 
 MIDDLEWARE = [

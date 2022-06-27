@@ -1,10 +1,12 @@
+from datetime import date
+
 from django.contrib import messages
 from django.contrib.auth import get_user_model, authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.hashers import make_password
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .forms import UserRegistrationForm, LoginForm
+from .forms import UserRegistrationForm, LoginForm, UserProfileForm
 from .models import Profile
 
 User = get_user_model()
@@ -57,3 +59,24 @@ def register(request):
 def logout(request):
     auth_logout(request)
     return HttpResponseRedirect('/users/login/')
+
+
+def profile(request):
+    user = request.user
+    data = {
+        'height': user.profile.height,
+        'weight': user.profile.weight,
+        'dob': user.profile.dob,
+    }
+    form = UserProfileForm(initial=data)
+    today = date.today()
+    # age = today.year - form.fields['dob'].year - (
+    #             (today.month, today.day) < (form.fields['dob'].month, form.fields['dob'].day))
+    age = 22
+    statistics = {
+        'BMR': (655.1 + (9.563 * float(form.weight)) + (1.850 * float(form.fields['height'])) - (4.676 * age))
+        if form.fields['gender'] == 'female'
+        else
+        (66.47 + (13.75 * float(form.fields['weight'])) + (5.003 * float(form.fields['height'])) - (6.755 * age))
+    }
+    return render(request, 'profile.html', {'form': form})

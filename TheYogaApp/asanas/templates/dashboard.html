@@ -4,20 +4,20 @@
 {% block head %}
 {% endblock head %}
 {% block body %}
+
+
+<!--INLINE CSS-->
+<style>
+body{
+    background: rgb(0,0,200,0.5);
+}
+</style>
+<!--END CSS-->
+
 {% if messages %}
     {% for message in messages %}
         <div class="alert alert-info" role="alert">{{ message }}</div>
     {% endfor %}
 {% endif %}
-<div class="container bg-light shadow my-5">
-    {% for asan in asana %}
-        <div class="card shadow mx-5 bg-white rounded d-inline-block my-3" style="height:300px; width:300px;" id="{{ asan.pk }}">
-          <div class="card-body text-dark text-center">
-              <img src="{{ asan.image }}" class="h-50 mx-auto d-block" alt="{{ asan.name }}">
-              <h5 class="card-title">{{ asan.name }}</h5>
-              <button type="button" class="btn btn-outline-secondary mt-3">Start</button>
-          </div>
-        </div>
-    {% endfor %}
-</div>
+<a href="{% url 'yoga' %}"><button class="btn btn-primary px-5 py-2 m-3">Start</button></a>
 {% endblock body %}

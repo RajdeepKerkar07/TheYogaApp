@@ -8,7 +8,7 @@ def diet(request):
 
 
 def page_by_problem(request, problem_name):
-    diet = Diet.objects.get(problem__name__iexact=problem_name)
+    diet = Diet.objects.get(problem__iexact=problem_name)
     return render(request, 'diet/problem_tips.html', context={'diet': diet})
 
 

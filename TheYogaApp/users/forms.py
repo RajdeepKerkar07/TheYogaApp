@@ -7,8 +7,6 @@ class UserProfileForm(forms.Form):
     height = forms.DecimalField(widget=forms.NumberInput(attrs={'placeholder': 'Height in cm'}))
     weight = forms.DecimalField(widget=forms.NumberInput(attrs={'placeholder': 'Weight in kg'}))
     dob = forms.DateField(widget=forms.DateInput(attrs={'placeholder': 'Date of Birth', 'type': 'date'}))
-    gender = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-                                       choices=[('Male', 'Male'), ('Female', 'Female')])
 
 
 class UserRegistrationForm(forms.Form):
@@ -22,8 +20,6 @@ class UserRegistrationForm(forms.Form):
     dob = forms.DateField(widget=forms.DateInput(attrs={'placeholder': 'Date of Birth', 'type': 'date'}))
     medical_conditions = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,
                                                         queryset=Problems.objects.all())
-    gender = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-                                       choices=[('Male', 'Male'), ('Female', 'Female')])
 
 
 class LoginForm(forms.Form):

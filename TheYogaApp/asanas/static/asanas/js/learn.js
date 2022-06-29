@@ -28,17 +28,17 @@ function setup() {
   poseNet.on('pose', gotPoses);
 
   imgArray[0] = new Image();
-  imgArray[0].src = '../images/mountain.svg';
+  imgArray[0].src = '/static/asanas/images/mountain.svg';
   imgArray[1] = new Image();
-  imgArray[1].src = '../images/tree.svg';
+  imgArray[1].src = '/static/asanas/images/tree.svg';
   imgArray[2] = new Image();
-  imgArray[2].src = '../images/dog.svg';
+  imgArray[2].src = '/static/asanas/images/dog.svg';
   imgArray[3] = new Image();
-  imgArray[3].src = '../images/warrior1.svg';
+  imgArray[3].src = '/static/asanas/images/warrior1.svg';
   imgArray[4] = new Image();
-  imgArray[4].src = '../images/warrior2.svg';
+  imgArray[4].src = '/static/asanas/images/warrior2.svg';
   imgArray[5] = new Image();
-  imgArray[5].src = '../images/chair.svg';
+  imgArray[5].src = '/static/asanas/images/chair.svg';
 
   poseCounter = 0;
   targetLabel = 1;
@@ -59,9 +59,9 @@ function setup() {
 
   yogi = ml5.neuralNetwork(options);
   const modelInfo = {
-    model: '../modelv2/model2.json',
-    metadata: '../modelv2/model_meta2.json',
-    weights: '../modelv2/model.weights2.bin',
+    model: '/static/asanas/modelv2/model2.json',
+    metadata: '/static/asanas/modelv2/model_meta2.json',
+    weights: '/static/asanas/modelv2/model.weights2.bin',
   };
   yogi.load(modelInfo, yogiLoaded);
 }

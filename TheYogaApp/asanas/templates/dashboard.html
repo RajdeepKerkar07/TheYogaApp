@@ -19,5 +19,11 @@ body{
         <div class="alert alert-info" role="alert">{{ message }}</div>
     {% endfor %}
 {% endif %}
-<a href="{% url 'yoga' %}"><button class="btn btn-primary px-5 py-2 m-3">Start</button></a>
+    <h1 class="d-block mx-5 p-3">Courses</h1>
+    <div class="container shadow m-auto p-3 mb-5 rounded bg-light w-100 d-flex justify-content-between flex-wrap">
+        {% for asan in asana %}
+            <img src="{{ asan.image }}" alt="{{ asan.name }}" height="200" width="150" class="shadow bg-light mt-3">
+        {% endfor %}
+        <div class="align-self-center"><a href="{% url 'yoga' %}"><button class="btn btn-primary px-5 py-2 m-3">Start</button></a></div>
+    </div>
 {% endblock body %}

@@ -39,7 +39,7 @@ function setup() {
   imgArray[4].src = '/static/asanas/images/warrior2.svg';
   imgArray[5] = new Image();
   imgArray[5].src = '/static/asanas/images/chair.svg';
-
+  
   poseCounter = 0;
   targetLabel = 1;
   target = posesArray[poseCounter];
@@ -49,14 +49,14 @@ function setup() {
   errorCounter = 0;
   iterationCounter = 0;
   document.getElementById("poseImg").src = imgArray[poseCounter].src;
-
+  
   let options = {
     inputs: 34,
     outputs: 6,
     task: 'classification',
     debug: true
   }
-
+  
   yogi = ml5.neuralNetwork(options);
   const modelInfo = {
     model: '/static/asanas/modelv2/model2.json',
@@ -65,7 +65,7 @@ function setup() {
   };
   yogi.load(modelInfo, yogiLoaded);
 }
-
+  
 function yogiLoaded(){
   console.log("Model ready!");
   classifyPose();
@@ -97,13 +97,13 @@ function gotResult(error, results) {
       iterationCounter = iterationCounter + 1;
 
       console.log(iterationCounter)
-
+      
       if (iterationCounter == 10) {
         console.log("30!")
         iterationCounter = 0;
         nextPose();}
       else{
-        console.log("doing this")
+        console.log("doin this")
         timeLeft = timeLeft - 1;
         if (timeLeft < 10){
           document.getElementById("time").textContent = "00:0" + timeLeft;
@@ -127,7 +127,7 @@ function gotResult(error, results) {
         setTimeout(classifyPose, 100);
       }}}
   else{
-    console.log("what we really don't want")
+    console.log("whatwe really dont want")
     setTimeout(classifyPose, 100);
 }}
 
@@ -149,7 +149,7 @@ function draw() {
   translate(video.width, 0);
   scale(-1,1);
   image(video, 0, 0, video.width, video.height);
-
+  
   if (pose) {
     for (let i = 0; i < skeleton.length; i++) {
       let a = skeleton[i][0];
@@ -164,12 +164,12 @@ function draw() {
 
 function nextPose(){
   if (poseCounter >= 5) {
-    console.log("Well done, you have performed all poses!");
+    console.log("Well done, you have learnt all poses!");
     document.getElementById("finish").textContent = "Amazing!";
     document.getElementById("welldone").textContent = "All poses done.";
     document.getElementById("sparkles").style.display = 'block';
   }else{
-    console.log("Well done, you have performed all poses!");
+    console.log("Well done, you all poses!");
     //var stars = document.getElementById("starsid");
     //stars.classList.add("stars.animated");
     errorCounter = 0;

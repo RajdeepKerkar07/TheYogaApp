@@ -1,6 +1,7 @@
 from django import forms
 
 from problems.models import Problems
+from diet.models import Diet
 
 
 class UserProfileForm(forms.Form):
@@ -10,6 +11,11 @@ class UserProfileForm(forms.Form):
 
 
 CHOICES = [('Male', 'Male'), ('Female', 'Female')]
+CHOICES_EXERCISE = [('0', 'Little or no exercise'),
+                    ('1', 'Exercise 1-3 days/week'),
+                    ('2', 'Exercise 3-5 days/week'),
+                    ('3', 'Exercise 6 days/week'),
+                    ('4', 'Hard exercise on all 7 days')]
 
 
 class UserRegistrationForm(forms.Form):
@@ -24,6 +30,9 @@ class UserRegistrationForm(forms.Form):
     medical_conditions = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,
                                                         queryset=Problems.objects.all())
     gender = forms.CharField(widget=forms.RadioSelect(choices=CHOICES, attrs={'placeholder': 'Gender'}), label="Gender")
+    diet = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,
+                                          queryset=Diet.objects.all())
+    exercise_frequency = forms.CharField(widget=forms.RadioSelect(choices=CHOICES_EXERCISE), label="exercise_frequency")
 
 
 class LoginForm(forms.Form):

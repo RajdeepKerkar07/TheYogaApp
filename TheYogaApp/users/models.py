@@ -14,3 +14,5 @@ class Profile(models.Model):
     gender = models.CharField(max_length=10, default='none')
     picture = models.ImageField(upload_to="profile_pics", null=True, blank=True)
     medical_conditions = models.ManyToManyField("problems.Problems")
+    diet = models.ManyToManyField("diet.Diet")
+    exercise_frequency = models.CharField(max_length=1, default='0')

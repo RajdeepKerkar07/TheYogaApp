@@ -63,8 +63,8 @@
 
 .radio-form{
      width: 40%;
-     display: block;
-     margin: auto;
+     display: inline-block;
+     margin: 10px 40px;
      padding: 15px;
      margin-bottom: 20px;
      border-radius: 20px;
@@ -126,10 +126,19 @@
     <form class="p-3" method="post">
         {% csrf_token %}
         {% for field in form %}
-        {% if field.name != 'medical_conditions' and field.name != 'gender' %}
+        {% if field.name != 'medical_conditions' and field.name != 'gender' and field.name != 'diet' and field.name != 'exercise_frequency' %}
         <div class="form-field">{{field}}</div>
         {% endif %}
         {% endfor %}
+        <div class="radio-form">
+        <p style="font-size: 1.3rem; color: #555; letter-spacing: 0.3px; padding-left: 5px;">Exercise Frequency</p>
+        {% for field in form %}
+            {% if field.name == 'exercise_frequency' %}
+                {{ form.exercise_frequency }}
+            {% endif %}
+        {% endfor %}
+        </div>
+
         <div class="radio-form">
         <p style="font-size: 1.3rem; color: #555; letter-spacing: 0.3px; padding-left: 5px;">Gender</p>
         {% for field in form %}
@@ -138,6 +147,13 @@
             {% endif %}
         {% endfor %}
         </div>
+
+        <h4 class="d-block text-center mt-5 mb-3">Diet Recommendations</h4>
+        {% for value, label in form.diet.field.choices %}
+            <input type="checkbox" class="btn-check" name="diet" id="id_diet_{{ value }}" value="{{ value }}">
+            <label class="btn-outline-success text-dark mx-1 my-1 px-3 py-1 border border-secondary rounded-3" for="id_diet_{{ value }}">{{ label }}</label>
+        {% endfor %}
+
         <h4 class="d-block text-center mt-5 mb-3">Medical Conditions</h4>
         {% for value, label in form.medical_conditions.field.choices %}
             <input type="checkbox" class="btn-check" name="medical_conditions" id="id_medical_conditions_{{ value }}" value="{{ value }}">

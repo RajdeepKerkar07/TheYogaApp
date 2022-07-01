@@ -48,8 +48,10 @@ def register(request):
                 weight=form.cleaned_data['weight'],
                 dob=form.cleaned_data['dob'],
                 gender=form.cleaned_data['gender'],
+                exercise_frequency=form.cleaned_data['exercise_frequency']
             )
             profile.medical_conditions.set(form.cleaned_data['medical_conditions'])
+            profile.diet.set(form.cleaned_data['diet'])
             messages.success(request, "Account is created. You can now login to the account.")
             return HttpResponseRedirect('/users/login/')
     else:

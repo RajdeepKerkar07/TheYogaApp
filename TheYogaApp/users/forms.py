@@ -9,6 +9,9 @@ class UserProfileForm(forms.Form):
     dob = forms.DateField(widget=forms.DateInput(attrs={'placeholder': 'Date of Birth', 'type': 'date'}))
 
 
+CHOICES = [('Male', 'Male'), ('Female', 'Female')]
+
+
 class UserRegistrationForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     emailId = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
@@ -20,6 +23,7 @@ class UserRegistrationForm(forms.Form):
     dob = forms.DateField(widget=forms.DateInput(attrs={'placeholder': 'Date of Birth', 'type': 'date'}))
     medical_conditions = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,
                                                         queryset=Problems.objects.all())
+    gender = forms.CharField(widget=forms.RadioSelect(choices=CHOICES, attrs={'placeholder': 'Gender'}), label="Gender")
 
 
 class LoginForm(forms.Form):

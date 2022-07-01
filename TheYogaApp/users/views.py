@@ -47,6 +47,7 @@ def register(request):
                 height=form.cleaned_data['height'],
                 weight=form.cleaned_data['weight'],
                 dob=form.cleaned_data['dob'],
+                gender=form.cleaned_data['gender'],
             )
             profile.medical_conditions.set(form.cleaned_data['medical_conditions'])
             messages.success(request, "Account is created. You can now login to the account.")

@@ -11,5 +11,6 @@ class Profile(models.Model):
     height = models.DecimalField(max_digits=5, decimal_places=2)
     weight = models.DecimalField(max_digits=5, decimal_places=2)
     dob = models.DateField()
+    gender = models.CharField(max_length=10, default='none')
     picture = models.ImageField(upload_to="profile_pics", null=True, blank=True)
     medical_conditions = models.ManyToManyField("problems.Problems")

@@ -61,6 +61,15 @@
      padding: 10px 15px 10px 10px
  }
 
+.radio-form{
+     width: 40%;
+     display: block;
+     margin: auto;
+     padding: 15px;
+     margin-bottom: 20px;
+     border-radius: 20px;
+     box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff
+}
  .wrapper .form-field {
      width: 40%;
      display: inline-block;
@@ -117,10 +126,18 @@
     <form class="p-3" method="post">
         {% csrf_token %}
         {% for field in form %}
-        {% if field.name != 'medical_conditions' %}
+        {% if field.name != 'medical_conditions' and field.name != 'gender' %}
         <div class="form-field">{{field}}</div>
         {% endif %}
         {% endfor %}
+        <div class="radio-form">
+        <p style="font-size: 1.3rem; color: #555; letter-spacing: 0.3px; padding-left: 5px;">Gender</p>
+        {% for field in form %}
+            {% if field.name == 'gender' %}
+                {{ form.gender }}
+            {% endif %}
+        {% endfor %}
+        </div>
         <h4 class="d-block text-center mt-5 mb-3">Medical Conditions</h4>
         {% for value, label in form.medical_conditions.field.choices %}
             <input type="checkbox" class="btn-check" name="medical_conditions" id="id_medical_conditions_{{ value }}" value="{{ value }}">

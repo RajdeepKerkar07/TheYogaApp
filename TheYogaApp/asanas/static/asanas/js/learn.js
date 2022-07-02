@@ -92,7 +92,7 @@ function classifyPose(){
 function gotResult(error, results) {
   document.getElementById("welldone").textContent = "";
   document.getElementById("sparkles").style.display = "none";
-  if (results[0].confidence > 0.75) {
+  if (results[0].confidence > 0.70) {
     console.log("Confidence");
     if (results[0].label == targetLabel.toString()){
       console.log(targetLabel);

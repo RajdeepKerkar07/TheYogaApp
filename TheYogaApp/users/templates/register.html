@@ -148,7 +148,7 @@
         {% endfor %}
         </div>
 
-        <h4 class="d-block text-center mt-5 mb-3">Diet Recommendations</h4>
+        <h4 class="d-block text-center mt-5 mb-3">Any Health Problems?</h4>
         {% for value, label in form.diet.field.choices %}
             <input type="checkbox" class="btn-check" name="diet" id="id_diet_{{ value }}" value="{{ value }}">
             <label class="btn-outline-success text-dark mx-1 my-1 px-3 py-1 border border-secondary rounded-3" for="id_diet_{{ value }}">{{ label }}</label>

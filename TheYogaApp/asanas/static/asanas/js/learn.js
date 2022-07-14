@@ -7,6 +7,7 @@ let posesArray = ['Mountain', 'Tree', 'Downward Dog', 'Warrior I', 'Warrior II',
 var imgArray = new Array();
 
 var poseImage;
+var state = "";
 
 let yogi;
 let poseLabel;
@@ -100,6 +101,7 @@ function gotResult(error, results) {
       iterationCounter = iterationCounter + 1;
       console.log(iterationCounter)
       beep.play();
+      state = "correct";
 
       if (iterationCounter == 10) {
         console.log("30!")
@@ -117,6 +119,7 @@ function gotResult(error, results) {
     else{
       errorCounter = errorCounter + 1;
       console.log("error");
+      state = "wrong";
       if (errorCounter >= 4){
         console.log("four errors");
         errorBeep.play();
@@ -156,19 +159,37 @@ function draw() {
   image(video, 0, 0, video.width, video.height);
 
   if (pose) {
-    for (let i = 0; i < skeleton.length; i++) {
-      let a = skeleton[i][0];
-      let b = skeleton[i][1];
-      strokeWeight(3);
-      stroke(255,0,0);
-      line(a.position.x, a.position.y, b.position.x, b.position.y);
+    if(state == "correct"){
+        for (let i = 0; i < skeleton.length; i++) {
+          let a = skeleton[i][0];
+          let b = skeleton[i][1];
+          strokeWeight(3);
+          stroke(0,255,0);
+          line(a.position.x, a.position.y, b.position.x, b.position.y);
+        }
+        for (let i = 0; i < pose.keypoints.length; i++) {
+          let x = pose.keypoints[i].position.x;
+          let y = pose.keypoints[i].position.y;
+          fill(0,255,0);
+          stroke(0);
+          ellipse(x, y, 16, 16);
+        }
     }
-    for (let i = 0; i < pose.keypoints.length; i++) {
-      let x = pose.keypoints[i].position.x;
-      let y = pose.keypoints[i].position.y;
-      fill(76,84,210);
-      stroke(0);
-      ellipse(x, y, 16, 16);
+    else{
+        for (let i = 0; i < skeleton.length; i++) {
+          let a = skeleton[i][0];
+          let b = skeleton[i][1];
+          strokeWeight(3);
+          stroke(255,0,0);
+          line(a.position.x, a.position.y, b.position.x, b.position.y);
+        }
+        for (let i = 0; i < pose.keypoints.length; i++) {
+          let x = pose.keypoints[i].position.x;
+          let y = pose.keypoints[i].position.y;
+          fill(255,0,0);
+          stroke(0);
+          ellipse(x, y, 16, 16);
+        }
     }
   }
   pop();

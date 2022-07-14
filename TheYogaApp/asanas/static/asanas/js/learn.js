@@ -12,6 +12,8 @@ let yogi;
 let poseLabel;
 
 var beep = new Audio('/static/asanas/audio/beep.mp3');
+var finalBeep = new Audio('/static/asanas/audio/finalBeep.mp3');
+var errorBeep = new Audio('/static/asanas/audio/errorBeep.mp3');
 
 var targetLabel;
 var errorCounter;
@@ -56,7 +58,7 @@ function setup() {
     inputs: 34,
     outputs: 6,
     task: 'classification',
-    debug: true
+    debug: true,
   }
 
   yogi = ml5.neuralNetwork(options);
@@ -93,15 +95,15 @@ function gotResult(error, results) {
   document.getElementById("welldone").textContent = "";
   document.getElementById("sparkles").style.display = "none";
   if (results[0].confidence > 0.70) {
-    console.log("Confidence");
     if (results[0].label == targetLabel.toString()){
       console.log(targetLabel);
       iterationCounter = iterationCounter + 1;
-
       console.log(iterationCounter)
+      beep.play();
 
       if (iterationCounter == 10) {
         console.log("30!")
+        finalBeep.play();
         iterationCounter = 0;
         nextPose();}
       else{
@@ -117,6 +119,7 @@ function gotResult(error, results) {
       console.log("error");
       if (errorCounter >= 4){
         console.log("four errors");
+        errorBeep.play();
         iterationCounter = 0;
         timeLeft = 10;
         if (timeLeft < 10){
